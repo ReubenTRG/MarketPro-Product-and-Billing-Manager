@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login_page_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="logindiv1">
+            <img id="loginimg" src="images/logo.png" alt="Login Logo">
+            
+
+            <div class="button-container" id="buttonContainer">
+                <button class="loginbutton" id="loginButton">Login</button>
+                <button class="loginbutton" id="SignupButton">Signup</button>
+            </div>
+            <div id="loginForm" class="hidden">
+                <h2>Login</h2>
+                <form>
+                    <label for="username">Username:</label><br>
+                    <input class="inputbox" type="text" id="username" name="username" required><br>
+                    <label for="password">Password:</label><br>
+                    <input class="inputbox" type="password" id="password" name="password" required><br><br>
+                    <input class="submit" type="submit" value="Submit">
+                </form>
+                <button id="closeForm" class="submit">Back</button>
+            </div>
+            <div id="SignupForm" class="hidden">
+                <h2>Signup</h2>
+                <form>
+                    <label for="email">Enter your email address:</label><br>
+                    <input class="inputbox" type="text" id="email" name="email" required><br>
+                    <label for="password">Create a Password:</label><br>
+                    <input class="inputbox" type="password" id="password" name="password" required><br><br>
+                    <input class="submit" type="submit" value="Submit">
+                </form>
+                <button id="closeFormSignup" class="submit">Back</button>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="images/super2.jpg" alt="Image Description" class="right-image"> 
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

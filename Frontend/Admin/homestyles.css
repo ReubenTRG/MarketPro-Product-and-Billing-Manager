@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background-color: #EEEEEE;
+    color: #222831;
+    font-family: 'Trebuchet MS', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    /*background: linear-gradient(157deg, #EEEEEE 50%, #222831 50%);*/
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure particles are behind content */
+}
+
+.bg {
+   
+    position: relative; /* Allow content to be placed on top of particles */
+    z-index: 2; /* Ensure content is above particles */
+    
+    
+}
+
+.navbar {
+    display: flex;
+    background-color: #212121;
+    overflow: hidden;
+    height: 3rem;
+    width: 100%;
+    text-align: center;
+    color: #212121; 
+    flex: 1;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.navbar_image {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.navbar_logout {
+    margin-left: 10rem;
+    width: 10rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    color: black; 
+    background-color: #08D9D6; 
+    border-radius: 5px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar_links {
+    padding-left: 9rem;
+    padding-right: 9rem;
+    padding-top: 0.8rem;
+    color: #FFFFFF; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .navbar_links:hover {
+        background-color: #08D9D6;
+        color: black;
+        cursor: pointer;
+    }
+
+.welcome {
+    font-family: 'Lucida Sans Typewriter';
+    text-align: center;
+    padding-top: 4rem;
+    font-size: 2.5rem;
+    color: #222831; 
+}
+
+.functions {
+    display: flex;
+    flex: 1;
+    font-size: 1.4rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 3rem;
+}
+
+.user_management_section, .report_management_section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 3rem;
+    font-family: 'Lucida Sans Typewriter';
+    color: #EEEEEE; 
+    width: 45%; 
+    background-color: #212121; 
+    padding-bottom: 8rem;
+    margin: 8rem;
+    margin-bottom: 0rem;
+    margin-top: 0.7rem;
+    border-radius: 2rem;
+}
+
+/*.report_management_section {
+    color: black;
+    background-color: #EEEEEE;
+}*/
+
+    .user_management_section h2{
+        margin-bottom: 1rem; 
+        padding-top: 3rem;
+        color: #EEEEEE; 
+    }
+   .report_management_section h2 {
+    margin-bottom: 1rem;
+    padding-top: 3rem;
+    color: #EEEEEE;
+}
+
+button.user_management, button.report_management {
+    margin-top: 1rem;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    font-family: 'Lucida Sans Typewriter';
+    border: solid;
+    width: 20rem;
+    font-size: 1.2rem;
+    color: black;
+    background-color: #08D9D6;
+    border-radius:10px;
+}
+
+    button.user_management:hover, button.report_management:hover {
+        background-color: #00ADB5; 
+        color: black;
+    }
+
+.role {
+    font-size: 2rem;
+    color: #222831; 
+    padding-top: 1rem;
+}
+
+.uid {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: #222831; 
+}
+
