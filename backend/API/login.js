@@ -1,15 +1,15 @@
 const api = require('express');
 const router = api.Router();
 const Joi = require("joi");
-const { data, db } = require('../main');
+const { db } = require('../main');
 
 // POST route for adding a new user
 router.post('/signin', async (req, res) => {
 	const { name, password, role } = req.body;
 
 	// Validate new user data
-	const { error } = validateNewUser(name, password, role);
-	if (error) return res.status(400).send('Invalid data format.');
+	const { error } = validateCredentials(name, password, role);
+	if (error) return res.status(400).send('Error: ' + error.details[0].message);
 
 	try {
 		// Check if the user already exists
@@ -24,12 +24,12 @@ router.post('/signin', async (req, res) => {
 		const newUser = {
 			name,
 			password, // For security, hash the password before storing
-			role,
+			role: "customer",
 			purchase_history_id: []
 		};
 
 		const docRef = await usersCollection.add(newUser);
-		return res.status(201).json({ success: true, message: 'User created', userId: docRef.id });
+		return res.status(201).json({ success: true, role: "customer", user_id: docRef.id });
 	} catch (err) {
 		console.error(err);
 		return res.status(500).send('Internal Server Error');
@@ -37,13 +37,13 @@ router.post('/signin', async (req, res) => {
 });
 
 // GET route for logging in an existing user
-router.get('/login', async (req, res) => {
-	const name = req.query.name;
-	const password = req.query.password;
+router.post('/login', async (req, res) => {
+	const name = req.body.name;
+	const password = req.body.password;
 
 	// Validate credentials
 	const { error } = validateCredentials(name, password);
-	if (error) return res.status(400).send('Invalid user name or password format.');
+	if (error) return res.status(400).send('Error: ' + error.details[0].message);
 
 	try {
 		// Query the collection to find a document with the matching name
@@ -87,14 +87,4 @@ const validateCredentials = (name, password) => {
 		password: Joi.string().min(3).max(30).required(),
 	});
 	return schema.validate({ name, password });
-};
-
-// Validation function for new user data
-const validateNewUser = (name, password, role) => {
-	const schema = Joi.object({
-		name: Joi.string().min(3).max(30).required(),
-		password: Joi.string().min(3).max(30).required(),
-		role: Joi.string().valid('customer', 'admin', 'sales manager').required()
-	});
-	return schema.validate({ name, password, role });
-};
+}; 

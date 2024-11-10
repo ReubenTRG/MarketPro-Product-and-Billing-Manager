@@ -3,7 +3,7 @@ const router = api.Router();
 
 const Joi = require("joi");
 
-var { data, db } = require('../main');
+var { db } = require('../main');
 
 // GET /:table api to display a table
 router.get('/:table', async (req, res) => { // TODO: recheck
@@ -174,7 +174,8 @@ const validate_table = (data) => {
 
 const validate_input_users_schema = (data) => {
 	const schema = Joi.object({
-		id: Joi.string().length(8).pattern(/^user\d{4}$/).required(),
+		// id: Joi.string().length(8).pattern(/^user\d{4}$/).required(), // format not needed
+		id: Joi.string().required(),
 		name: Joi.string().max(20).required(),
 		password: Joi.string().min(8).required(),
 		role: Joi.string().valid('customers', 'inv_manager', 'sal_person', 'admin').required(),
@@ -197,7 +198,8 @@ const validate_input_products_schema = (data) => {
 const validate_input_purchases_schema = (data) => {
 	const schema = Joi.object({
 		id: Joi.string().length(7).pattern(/^pur\d{4}$/).required(),
-		user_id: Joi.string().length(8).pattern(/^user\d{4}$/).required(),
+		// user_id: Joi.string().length(8).pattern(/^user\d{4}$/).required(), // format not needed
+		user_id: Joi.string().required(),
 		products: Joi.array().items(Joi.object({
 			product_id: Joi.string().length(7).pattern(/^pro\d{4}$/).required(),
 			quantity: Joi.number().min(0).required(),

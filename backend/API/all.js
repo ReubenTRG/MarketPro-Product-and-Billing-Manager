@@ -1,7 +1,7 @@
 const api = require('express');
 const router = api.Router();
 
-var { data, db } = require('../main');
+var { db } = require('../main');
 
 // GET /all api to display all the tables
 router.get('/all', async (req, res) => {
