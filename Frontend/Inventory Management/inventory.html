@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+ 
+    <header>
+        <div class="navbar">
+            <img class="navbar_image" src="images/logo.png" alt="Supermarket Logo" />
+            <a class="navbar_links" href="#profile">PROFILE</a>
+            <a class="navbar_links" href="">ALERTS</a>
+            <a class="navbar_links" href="#contact">CONTACT</a>
+            <button class="navbar_logout">LOGOUT</button>
+        </div>
+    </header>
+
+    <section class="welcome">
+        <h1>Welcome, [Inventory Manager's Name]!</h1>
+    </section>
+
+    <section class="main-sections">
+        <h2>Inventory Management</h2>
+        <div class="section-grid">
+            <a href="#view-inventory" class="section-card" onclick="showInventorySection()">
+                <span class="icon">📦</span>
+                View Inventory
+            </a>
+
+            <a href="#add-product" class="section-card add-product-link" onclick="openPopup('addProductPopup')">
+                <span class="icon">➕</span>
+                Add New Product
+            </a>
+            <a href="#update-stock" class="section-card" onclick="openPopup('updateStockPopup')">
+                <span class="icon">🔄</span>
+                Update Stock
+            </a>
+            <a href="#remove-product" class="section-card" onclick="openPopup('removeProductPopup')">
+                <span class="icon">🗑️</span>
+                Remove Product
+            </a>
+            <a href="#low-stock" class="section-card" onclick="toggleLowStockSection()">
+                <span class="icon">⚠️</span>
+                Low Stock
+            </a>
+
+        </div>
+    </section>
+
+    <section id="lowStockSection" class="low-stock-section" style="display: none;">
+        <h2>Low Stock Items</h2>
+        <table id="lowstocktable">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Stock Level</th>
+                </tr>
+            </thead>
+            <tbody id="lowStockTable">
+            </tbody>
+        </table>
+    </section>
+
+    <div id="addProductPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('addProductPopup')">&times;</span>
+            <h2>Add New Product</h2>
+            <form id="add-product-form">
+                <label for="productID">Product ID:</label>
+                <input type="text" id="productID" name="productID" required>
+
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="removeProductPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('removeProductPopup')">&times;</span>
+            <h2>Remove Product</h2>
+            <form id="remove-product-form">
+                <label for="productID">Product ID:</label>
+                <input type="text" id="productID" name="productID" required>
+
+                <button type="submit">Remove Product</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="updateStockPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('updateStockPopup')">&times;</span>
+            <h2>Update Stock</h2>
+            <form id="update-stock-form">
+                <label for="productID">Product ID:</label>
+                <input type="text" id="productID" name="productID" required>
+
+                <label for="newQuantity">New Quantity:</label>
+                <input type="number" id="newQuantity" name="newQuantity" required>
+
+                <button type="submit">Update Stock</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="viewInventory" class="view-inventory-section">
+        <h2>Inventory Overview</h2>
+        <input type="text" id="searchInput" onkeyup="filterInventory()" placeholder="Search for products...">
+
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <br />
+    <br />
+
+    <script src="script.js"></script>
+</body>
+</html>
