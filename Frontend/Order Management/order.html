@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <img class="navbar_image" src="images/logo.png" alt="Supermarket Logo" />
+            <a class="navbar_links" href="#profile"></a>
+            <a class="navbar_links" href=""></a>
+            <a class="navbar_links" href="#contact"></a>
+            <button class="navbar_logout" onclick="window.location.href='../Login/login_page.html'">LOGOUT</button>
+        </div>
+    </header>
+
+    
+    <section class="welcome">
+        <h1>Order Management</h1>
+    </section>
+
+
+    <section id="viewOrders" class="view-orders-section">
+        <h2>Orders</h2>
+
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Total</th>
+                    <th>Products</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <br />
+    <br />
+    <script src="script.js"></script>
+</body>
+</html>
