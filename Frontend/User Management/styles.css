@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: #EEEEEE;
     color: #222831;
     font-family: 'Trebuchet MS', sans-serif;
     overflow: auto;
@@ -28,18 +28,19 @@ body {
 }
 
 .navbar_logout {
-    margin-left: 10rem;
+    margin-left: auto;
+    margin-right: 2rem;
     width: 10rem;
     height: 2rem;
     margin-top: 0.5rem;
     color: black;
-    background-color: #08D9D6;
+    background-color: #36D1DC;
     border-radius: 5px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .navbar_links {
+    
     padding-left: 9rem;
     padding-right: 9rem;
     padding-top: 0.8rem;
@@ -49,11 +50,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
-    .navbar_links:hover {
+    /*.navbar_links:hover {
         background-color: #08D9D6;
         color: black;
         cursor: pointer;
-    }
+    }*/
 
 .welcome {
     font-family: 'Lucida Sans Typewriter';

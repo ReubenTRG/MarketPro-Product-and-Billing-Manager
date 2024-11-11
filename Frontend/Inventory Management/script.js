@@ -84,7 +84,7 @@ function populateLowStockTable() {
     const lowStockTable = document.getElementById('lowStockTable');
     lowStockTable.innerHTML = '';
     inventory
-        .filter(item => item.quantity <10) 
+        .filter(item => item.quantity ==0) 
         .forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
