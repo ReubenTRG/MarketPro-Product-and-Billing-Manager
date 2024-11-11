@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <img class="navbar_image" src="images/logo.png" alt="Supermarket Logo" />
+            <a class="navbar_links" href="#profile">PROFILE</a>
+            <a class="navbar_links" href="">ALERTS</a>
+            <a class="navbar_links" href="#contact">CONTACT</a>
+            <button class="navbar_logout">LOGOUT</button>
+        </div>
+    </header>
+
+    
+    <section class="welcome">
+        <h1>Welcome, [Admin's Name]!</h1>
+    </section>
+
+
+
+    <!-- Main Sections -->
+    <section class="main-sections">
+        <h2>User Management</h2>
+        <div class="section-grid">
+            <a href="#viewUsers" class="section-card" onclick="toggleUsersSection()">
+                <span class="icon">👨🏻‍💻</span>
+                View Users
+            </a>
+
+     
+            <a href="#update-user-roles" class="section-card" onclick="openPopup('updateUserRolesPopup')">
+                <span class="icon">🔄</span>
+                Update User Details
+            </a>
+            <a href="#remove-user" class="section-card" onclick="openPopup('removeUserPopup')">
+                <span class="icon">🗑️</span>
+                Remove User
+            </a>
+            
+        </div>
+    </section>
+    
+
+    <div id="removeUserPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('removeUserPopup')">&times;</span>
+            <h2>Remove User</h2>
+            <form id="remove-user-form">
+                <label for="userID">User ID:</label>
+                <input type="text" id="userID" name="userID" required>
+
+                <button type="submit">Remove User</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="updateUserRolesPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('updateUserRolesPopup')">&times;</span>
+            <h2>Update User</h2>
+            <form id="update-user-roles-form">
+                <label for="userID">User ID:</label>
+                <input type="text" id="userID" name="userID" required>
+
+                <label for="newRole">New Role:</label>
+                <input type="text" id="newRole" name="newRole" required>
+
+                <button type="submit">Update User</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="viewUsers" class="view-users-section">
+        <h2>Users Overview</h2>
+        <input type="text" id="searchInput" onkeyup="filterUsers()" placeholder="Search for users...">
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <br />
+    <br />
+    <script src="script.js"></script>
+</body>
+</html>
